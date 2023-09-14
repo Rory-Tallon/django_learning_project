@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cryptocurrency Price Finder</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'price_collector/style.css' %}">
+  </head>
+  <body>
+    
+	{% if price %}
+    <div class="d-flex h-100 p-3 align-items-center mx-auto justify-content-center flex-column">
+      <h1 class="cover-heading">The price of {{name_of_coin}} during the specified date is ${{price}}</h1>
+      <a href="{% url 'price_collector:index' %}"> Go back</a>
+      <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image">
+    </div>
+    
+  {% endif %}
+  
+  </body>
+</html>
